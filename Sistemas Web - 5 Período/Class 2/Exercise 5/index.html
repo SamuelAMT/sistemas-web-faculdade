@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Class 2 - Exercise 5</title>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .radio-label,
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+    }
+
+    .radio-label input[type="radio"],
+    .checkbox-label input[type="checkbox"] {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Client Registration:</h1>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required>
+    <br>
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <label for="gender">Gender:</label>
+    <div class="radio-label">
+      <input type="radio" id="male" name="gender" value="male" required>
+      <label for="male">Male</label>
+    </div>
+    <div class="radio-label">
+      <input type="radio" id="female" name="gender" value="female" required>
+      <label for="female">Female</label>
+    </div>
+    <br>
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment"></textarea>
+    <br>
+    <label for="terms">Agree to Terms:</label>
+    <div class="checkbox-label">
+      <input type="checkbox" id="terms" name="terms" required>
+      <label for="terms">I agree to the terms of use</label>
+    </div>
+    <br>
+    <label for="birthdate">Date of Birth:</label>
+    <input type="date" id="birthdate" name="birthdate" required>
+    <br>
+    <label for="url">URL:</label>
+    <input type="url" id="url" name="url">
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
