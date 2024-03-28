@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 5 - Exercise 1</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 50%;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+        button {
+            display: flex;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .error-message {
+            color: #e74c3c;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Formulário de Contato</h2>
+    <form id="contactForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email">
+        <label for="phone">Telefone:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
+        <button type="button" onclick="validateForm()">Enviar</button>
+    </form>
+    <div id="errorMessages" class="error-message"></div>
+    <script>
+        function validateForm() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let phone = document.getElementById('phone').value;
+            let errorMessages = [];
+
+            // Validar o campo de nome
+            if (name.trim() === '') {
+                errorMessages.push('O campo de nome é obrigatório.');
+            }
+
+            // Validar o campo de e-mail
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorMessages.push('Por favor, insira um e-mail válido.');
+            }
+
+            // Validar o campo de telefone
+            let phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone)) {
+                errorMessages.push('Por favor, insira um número de telefone válido (apenas dígitos, 10 caracteres).');
+            }
+
+            // Exibir mensagens de erro ou enviar formulário
+            let errorContainer = document.getElementById('errorMessages');
+            if (errorMessages.length > 0) {
+                errorContainer.innerHTML = errorMessages.join('<br>');
+            } else {
+                errorContainer.innerHTML = '';
+                alert('Formulário enviado com sucesso!');
+                document.getElementById('contactForm').reset();
+            }
+        }
+    </script>
+</body>
+</html>
