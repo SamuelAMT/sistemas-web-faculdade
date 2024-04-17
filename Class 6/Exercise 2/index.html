@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 6 - Exercise 2</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Formulário de Cadastro de Usuário</h1>
+  <form id="formCadastro" onsubmit="return validarFormulario()">
+    <div>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" required>
+      <span id="errorNome" class="error"></span>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      <span id="errorEmail" class="error"></span>
+    </div>
+    <div>
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" required>
+      <span id="errorSenha" class="error"></span>
+    </div>
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <script>
+    function validarFormulario() {
+      var nome = document.getElementById('nome').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var senha = document.getElementById('senha').value.trim();
+      var validacao = true;
+
+      // Validação do campo Nome
+      if (nome === "") {
+        document.getElementById('errorNome').innerText = "Por favor, insira seu nome.";
+        validacao = false;
+      } else {
+        document.getElementById('errorNome').innerText = "";
+      }
+
+      // Validação do campo Email
+      if (email === "") {
+        document.getElementById('errorEmail').innerText = "Por favor, insira seu email.";
+        validacao = false;
+      } else {
+        document.getElementById('errorEmail').innerText = "";
+      }
+
+      // Validação do campo Senha
+      if (senha === "") {
+        document.getElementById('errorSenha').innerText = "Por favor, insira sua senha.";
+        validacao = false;
+      } else {
+        document.getElementById('errorSenha').innerText = "";
+      }
+
+      return validacao;
+    }
+  </script>
+</body>
+</html>
